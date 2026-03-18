@@ -1,0 +1,164 @@
+.videoBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; 
+    object-fit: cover; /* Riempie lo spazio senza deformarsi, tagliando i bordi in eccesso */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.content h1 span {
+    position: relative;
+    text-decoration: none; /* Togliamo quella statica */
+}
+
+.content h1 span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0; /* Parte da zero */
+    height: 5px;
+    background-color: var(--rosso);
+    animation: lineaProgressiva 1s ease-out 2s forwards;
+}
+
+@keyframes lineaProgressiva {
+    to { width: 100%; }
+}
+
+.content p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: rgb(235, 235, 235);
+}
+
+.btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap; /* Permette ai bottoni di andare a capo su schermi piccoli */
+}
+
+/* Stile base per entrambi i bottoni (per farli tornare come prima) */
+.btn1, .btn2 {
+    display: inline-flex;  /* Usiamo flex per allineare icona e testo */
+    align-items: center;   /* Centra l'icona verticalmente */
+    justify-content: center;
+    gap: 12px;             /* Spazio tra icona e testo */
+    
+    text-decoration: none; /* Rimuove la sottolineatura blu dei link */
+    padding: 12px 25px;    /* Ripristinato il tuo padding originale */
+    border-radius: 100px;  /* Arrotondamento originale */
+    cursor: pointer;
+    font-size: 20px;       /* Dimensione originale */
+    font-weight: 500;     /* Peso originale */
+    transition: 0.3s ease;
+    font-family: inherit;  /* Prende il font del resto del sito */
+}
+
+/* Bottone 1: Inizia ora / Menù (Pieno) */
+.btn1 {
+    background-color: var(--rosso);
+    border: solid 2px var(--rosso);
+    color: white;
+}
+
+.btn1:hover {
+    transform: scale(1.02);
+}
+
+/* Bottone 2: Scopri corsi / Chiama (Trasparente) */
+.btn2 {
+    background-color: transparent;
+    border: solid 2px var(--rosso);
+    color: white;
+}
+
+.btn2:hover {
+    transform: scale(1.02);
+    color: white;
+}
+
+/* Dimensioni dell'icona immagine */
+.btn-icon {
+    width: 30px;  /* Dimensione bilanciata per il testo da 20px */
+    height: auto;
+}
+
+@media (max-width: 768px) {
+
+    .topbar {
+        padding: 30px 24px;
+        display: flex;
+        justify-content: flex-end; /* Spinge l'hamburger a destra */
+        align-items: center;
+    }
+
+    .logo {
+        position: absolute;
+        padding: 20px 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        align-items: center;
+    }
+
+    .hamburger {
+        display: flex;
+        z-index: 1001; /* Resta sopra il logo se dovessero sovrapporsi */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 90px;
+        right: 24px;
+        background: var(--rosso);
+        border-radius: 16px;
+        display: none;
+        flex-direction: column;
+        min-width: 180px;
+        padding: 12px 0;
+        z-index: 1000;
+    }
+
+    .nav-links a {
+        margin: 0;
+        padding: 12px 20px;
+        color:white;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .topbar.scrolled {
+        padding: 15px 48px;
+        backdrop-filter: blur(4px);
+        border-bottom: 1px solid #333;
+        transition: 0.5s;
+    }
+}

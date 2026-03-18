@@ -1,0 +1,10 @@
+main {
+    position: relative; /* Indispensabile per contenere il video absolute */
+    width: 100%;
+    height: 100vh;      /* Prende tutta l'altezza dello schermo */
+    display: flex;      /* Attiva il sistema di allineamento */
+    flex-direction: column; 
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra orizzontalmente */
+    overflow: hidden;        /* Impedisce al video di creare scrollbar */
+}
