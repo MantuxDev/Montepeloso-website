@@ -78,6 +78,7 @@
     font-weight: 500;     /* Peso originale */
     transition: 0.3s ease;
     font-family: inherit;  /* Prende il font del resto del sito */
+    width: 250px;
 }
 
 /* Bottone 1: Inizia ora / Menù (Pieno) */
