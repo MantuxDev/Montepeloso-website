@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menù | Montepeloso 1960</title>
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/menu-style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,900;1,900&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="../img/Logo.png">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="logo">
+            <a href="../index.html">
+                <img src="../img/Logo.png" alt="Logo Montepeloso">
+            </a>
+        </div>
+        <button class="hamburger" aria-label="Apri menu">
+            <span></span><span></span><span></span>
+        </button>
+        <nav class="nav-links">
+            <a href="#" class="active">Menù</a>
+            <a href="feed.html">La nostra storia</a>
+            <a href="assistant.html">Contatti</a>
+        </nav>
+    </header>
+
+    <main class="menu-wrapper">
+        <div class="menu-header">
+            <span class="subtitle">Tradizione dal 1960</span>
+            <h1 class="main-title">Il Nostro Menù</h1>
+            <div class="header-line"></div>
+        </div>
+
+        <nav class="category-nav">
+            <div class="category-scroll">
+                <a href="#delizie" class="cat-link active">Delizie</a>
+                <a href="#fritte" class="cat-link">Pizze Fritte</a>
+                <a href="#padellino" class="cat-link">Padellino</a>
+                <a href="#piatto" class="cat-link">Al Piatto</a>
+                <a href="#pietra" class="cat-link">Su Pietra</a>
+                <a href="#beverage" class="cat-link">Beverage</a>
+                <a href="#birre" class="cat-link">Birre</a>
+                <a href="#vini" class="cat-link">Vini</a>
+                <a href="#dolci" class="cat-link">Dolci</a>
+            </div>
+        </nav>
+
+        <section id="piatto" class="section-container">
+
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Le Pizze al Piatto</h2>
+                <div class="elegant-divider">
+                    <span class="rhombus"></span>
+                </div>
+                <p class="section-desc">L'impasto classico a lunga lievitazione, steso a mano.</p>
+            </div>
+
+            <div class="menu-grid">
+                
+                <div class="pizza-card" id="card-1">
+                    <a href="dettaglio.html" class="info-badge">i</a>
+                    
+                    <div class="pizza-thumb">
+                        <img src="../img/margherita.png" alt="Margherita">
+                    </div>
+
+                    <div class="pizza-info">
+                        <h3>Margherita</h3>
+                        <p>Pomodoro San Marzano DOP, Mozzarella di Bufala, Basilico fresco e Olio EVO.</p>
+                        
+                        <div class="pizza-meta">
+                            <span class="price">7.50€</span>
+                            <button class="select-trigger" onclick="toggleSelect('card-1')">Seleziona</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pizza-card" id="card-2">
+                    <a href="#" class="info-badge">i</a>
+                    <div class="pizza-thumb">
+                        <img src="../img/margherita.png" alt="Pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Diavola 2.0</h3>
+                        <p>Spianta calabra, 'nduja di Spilinga e fili di peperoncino dolce.</p>
+                        <div class="pizza-meta">
+                            <span class="price">9.00€</span>
+                            <button class="select-trigger" onclick="toggleSelect('card-2')">Seleziona</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pizza-card" id="card-3">
+                    <a href="#" class="info-badge">i</a>
+                    <div class="pizza-thumb">
+                        <img src="../img/margherita.png" alt="Pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Diavola 2.0</h3>
+                        <p>Spianta calabra, 'nduja di Spilinga e fili di peperoncino dolce.</p>
+                        <div class="pizza-meta">
+                            <span class="price">9.00€</span>
+                            <button class="select-trigger" onclick="toggleSelect('card-3')">Seleziona</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pizza-card" id="card-4">
+                    <a href="#" class="info-badge">i</a>
+                    <div class="pizza-thumb">
+                        <img src="../img/margherita.png" alt="Pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Diavola 2.0</h3>
+                        <p>Spianta calabra, 'nduja di Spilinga e fili di peperoncino dolce.</p>
+                        <div class="pizza-meta">
+                            <span class="price">9.00€</span>
+                            <button class="select-trigger" onclick="toggleSelect('card-4')">Seleziona</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pizza-card" id="card-5">
+                    <a href="#" class="info-badge">i</a>
+                    <div class="pizza-thumb">
+                        <img src="../img/margherita.png" alt="Pizza">
+                    </div>
+                    <div class="pizza-info">
+                        <h3>Diavola 2.0</h3>
+                        <p>Spianta calabra, 'nduja di Spilinga e fili di peperoncino dolce.</p>
+                        <div class="pizza-meta">
+                            <span class="price">9.00€</span>
+                            <button class="select-trigger" onclick="toggleSelect('card-5')">Seleziona</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                
+
+            </div>
+        </section>
+    </main>
+
+    <script src="../js/navbar.js"></script>
+
+    <script>
+        function toggleSelect(id) {
+            const card = document.getElementById(id);
+            card.classList.toggle('is-selected');
+            const btn = card.querySelector('.select-trigger');
+            if(card.classList.contains('is-selected')) {
+                btn.innerText = "Selezionato";
+            } else {
+                btn.innerText = "Seleziona";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -24,14 +24,7 @@ const topbar = document.querySelector('.topbar');
 const hamburger = document.querySelector('.hamburger');
 const navLinks = document.querySelector('.nav-links');
 
-// 🔹 Riduce la navbar allo scroll
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    topbar.classList.add('scrolled');
-  } else {
-    topbar.classList.remove('scrolled');
-  }
-});
+
 
 // 🔹 Toggle menu mobile
 hamburger.addEventListener('click', () => {
