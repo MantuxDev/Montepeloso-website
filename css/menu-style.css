@@ -49,16 +49,6 @@
     gap: 12px;
 }
 
-.pizza-card {
-    background: white;
-    border-radius: 18px;
-    padding: 12px;
-    position: relative;
-    border: 1px solid #eee;
-    display: flex;
-    flex-direction: column;
-    transition: 0.3s;
-}
 
 /* Info in alto a destra */
 .info-badge {
@@ -92,10 +82,9 @@
 /* Tasto Selezione */
 .select-trigger {
     background: #f4f4f4;
-    border: 1px solid #ddd;
+    border: 2px solid #ddd;
     color: #333;
     padding: 10px;
-    
     border-radius: 8px;
     font-size: 11px;
     font-weight: 600;
@@ -175,4 +164,57 @@
 @media (min-width: 768px) {
     .section-title { font-size: 42px; }
     .section-title-wrapper { margin-bottom: 80px; } /* Ancora più spazio su schermi grandi */
+}
+
+/* Modifiche alla Card per allineamento perfetto */
+.pizza-card {
+    background: white;
+    border-radius: 18px;
+    padding: 12px;
+    position: relative;
+    border: 2px solid #eee;
+    display: flex;
+    flex-direction: column;
+    transition: 0.3s;
+    /* Assicura che la card occupi l'altezza massima della riga */
+    height: 100%; 
+}
+
+.pizza-info {
+    display: flex;
+    flex-direction: column;
+    /* Questo permette alla info di espandersi e spingere il resto in basso */
+    flex-grow: 1; 
+}
+
+.pizza-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    /* IL TRUCCO: spinge questo intero blocco sul fondo della card */
+    margin-top: auto; 
+    padding-top: 15px;
+}
+
+.price {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+    /* Allinea il prezzo a destra */
+    text-align: right; 
+}
+
+/* Tasto Selezione (rimane fisso sotto il prezzo) */
+.select-trigger {
+    width: 100%; /* Opzionale: lo rende uniforme su tutta la larghezza */
+    background: #f4f4f4;
+    border: 2px solid #ddd;
+    color: #333;
+    padding: 10px;
+    border-radius: 8px;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.3s;
 }
