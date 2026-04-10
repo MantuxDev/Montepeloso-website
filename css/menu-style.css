@@ -177,7 +177,7 @@
     flex-direction: column;
     transition: 0.3s;
     /* Assicura che la card occupi l'altezza massima della riga */
-    height: 100%; 
+    height: 100%;
 }
 
 .pizza-info {
