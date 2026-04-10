@@ -1,0 +1,471 @@
+:root{
+    --rosso: #a0110b;
+    --grigio: #D5D5D5;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main {
+    position: relative; /* Indispensabile per contenere il video absolute */
+    width: 100%;
+    height: 100vh;      /* Prende tutta l'altezza dello schermo */
+    display: flex;      /* Attiva il sistema di allineamento */
+    flex-direction: column; 
+    justify-content: center; /* Centra verticalmente */
+    align-items: center;     /* Centra orizzontalmente */
+    overflow: hidden;        /* Impedisce al video di creare scrollbar */
+}
+
+video {
+  will-change: transform; /* dice al browser di preparare il layer GPU */
+  transform: translateZ(0); /* forza accelerazione hardware */
+}
+
+.videoBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; 
+    object-fit: cover; /* Riempie lo spazio senza deformarsi, tagliando i bordi in eccesso */
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: -1; 
+}
+
+.content {
+    text-align: center;
+    z-index: 1;
+}
+
+.content h1 {
+    font-size: 50px;
+    margin-bottom: 10px;
+    color: white;
+}
+
+.content h1 span {
+    position: relative;
+    text-decoration: none; /* Togliamo quella statica */
+}
+
+.content h1 span::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0; /* Parte da zero */
+    height: 5px;
+    background-color: var(--rosso);
+    animation: lineaProgressiva 1s ease-out 2s forwards;
+}
+
+@keyframes lineaProgressiva {
+    to { width: 100%; }
+}
+
+.content p {
+    font-size: 24px;
+    margin-bottom: 30px;
+    color: rgb(235, 235, 235);
+}
+
+.btn {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap; /* Permette ai bottoni di andare a capo su schermi piccoli */
+}
+
+/* Stile base per entrambi i bottoni (per farli tornare come prima) */
+.btn1, .btn2 {
+    display: inline-flex;  /* Usiamo flex per allineare icona e testo */
+    align-items: center;   /* Centra l'icona verticalmente */
+    justify-content: center;
+    gap: 12px;             /* Spazio tra icona e testo */
+    
+    text-decoration: none; /* Rimuove la sottolineatura blu dei link */
+    padding: 12px 25px;    /* Ripristinato il tuo padding originale */
+    border-radius: 100px;  /* Arrotondamento originale */
+    cursor: pointer;
+    font-size: 20px;       /* Dimensione originale */
+    font-weight: 500;     /* Peso originale */
+    transition: 0.3s ease;
+    font-family: inherit;  /* Prende il font del resto del sito */
+    width: 250px;
+}
+
+/* Bottone 1: Inizia ora / Menù (Pieno) */
+.btn1 {
+    background-color: var(--rosso);
+    border: solid 2px var(--rosso);
+    color: white;
+}
+
+.btn1:hover {
+    transform: scale(1.02);
+}
+
+/* Bottone 2: Scopri corsi / Chiama (Trasparente) */
+.btn2 {
+    background-color: transparent;
+    border: solid 2px var(--rosso);
+    color: white;
+}
+
+.btn2:hover {
+    transform: scale(1.02);
+    color: white;
+}
+
+/* Dimensioni dell'icona immagine */
+.btn-icon {
+    width: 30px;  /* Dimensione bilanciata per il testo da 20px */
+    height: auto;
+}
+
+/* --- Stili Generali --- */
+section {
+    padding: 80px 10% 80px 10%; /* Spaziatura generosa per far respirare i contenuti */
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    margin-bottom: 40px;
+    position: relative;
+    display: inline-block;
+}
+
+h2::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 3px;
+    background: var(--rosso);
+    margin: 10px auto;
+}
+
+/* --- Sezione Specialità (Grid) --- */
+.specialties-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.pizza-card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: 0.3s;
+}
+
+.pizza-card:hover {
+    transform: translateY(-10px);
+}
+
+.pizza-card img {
+    width: 250px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.pizza-card h3 {
+    color: var(--rosso);
+    margin-bottom: 10px;
+}
+
+/* --- Sezione Qualità (Flexbox) --- */
+.quality-section {
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 50px;
+    text-align: left;
+}
+
+.quality-content {
+    flex: 1;
+    min-width: 300px;
+}
+
+.quality-image {
+    flex: 1;
+    min-width: 300px;
+}
+
+.quality-image img {
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 20px 20px 0px var(--rosso); /* Effetto grafico carino */
+}
+
+/* --- Sezione Recensioni (Stile Google) --- */
+.reviews {
+    background-color: #f4f4f4; /* Grigio chiarissimo per far risaltare le card bianche */
+    padding: 80px 10%;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.review-card {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    text-align: left; /* Allineamento a sinistra come le vere recensioni */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px);
+}
+
+.review-text {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 25px;
+    font-style: italic;
+}
+
+/* Parte inferiore: Profilo e Stelle */
+.review-footer {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.user-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    background-color: var(--grigio); /* Placeholder se l'immagine manca */
+}
+
+.user-info h4 {
+    margin: 0;
+    font-size: 17px;
+    color: #333;
+}
+
+.stars {
+    color: #fbbc04; /* Il giallo ufficiale delle stelle Google */
+    font-size: 14px;
+    margin-top: 2px;
+}
+
+/* --- Sezione Dove Ci Troviamo --- */
+.location-section {
+    background-color: var(--rosso);
+    color: white;
+    display: flex;
+    flex-wrap: wrap; /* Per farlo diventare a colonna singola su mobile */
+    padding: 0; /* Togliamo il padding per far toccare la mappa ai bordi se vuoi, o gestiamo internamente */
+    overflow: hidden;
+}
+
+.location-info {
+    flex: 1;
+    min-width: 350px;
+    padding: 80px 5%;
+    text-align: left;
+}
+
+.location-info h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+.location-info h2::after {
+    background: white; /* Linea bianca su sfondo rosso */
+    margin: 10px 0; /* Allineata a sinistra */
+}
+
+.address-details {
+    margin-bottom: 40px;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.opening-hours h3 {
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.opening-hours p {
+    margin: 5px 0;
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+/* --- Mappa Google --- */
+.location-map {
+    flex: 1;
+    min-width: 350px;
+    min-height: 450px;
+}
+
+.location-map iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    filter: grayscale(10%) contrast(1.1); /* Opzionale: per renderla più stilosa */
+}
+
+/* Reset per eliminare bordi bianchi indesiderati */
+footer {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.footer-premium {
+    background-color: #000;
+    color: #fff;
+    padding: 40px 5% 20px 5%; /* Padding ridotto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: sans-serif;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Logo e Anno più compatti */
+.footer-header {
+    margin-bottom: 30px;
+}
+
+.footer-header h2 {
+    font-size: 28px; /* Più piccolo e incisivo */
+    font-weight: 900;
+    margin: 0;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.footer-header .sub-logo {
+    display: block;
+    font-size: 10px;
+    color: #666;
+    letter-spacing: 3px;
+    margin-top: 2px;
+}
+
+/* Sezioni Link ridotte */
+.footer-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    max-width: 800px;
+    margin-bottom: 30px;
+}
+
+.footer-col h4 {
+    font-size: 10px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+    color: #bbb;
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.2s;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+}
+
+/* Social Quadrati */
+.social-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.social-item {
+    width: 35px; /* Dimensione fissa per il quadrato */
+    height: 35px;
+    background: #111;
+    border: 1px solid #222;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 12px;
+    transition: 0.3s;
+}
+
+.social-item:hover {
+    background: var(--rosso);
+    border-color: var(--rosso);
+}
+
+/* Bottom Bar stretta */
+.footer-info-bottom {
+    width: 100%;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #111;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 10px;
+    color: #333;
+}
+
+@media (min-width: 768px) {
+    .footer-sections {
+        flex-direction: row;
+        justify-content: center;
+        gap: 60px;
+    }
+    .footer-info-bottom {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
